@@ -1,6 +1,20 @@
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
+body {
+    margin:  0;
+    background-color: rgb(10, 10, 10);
+}
+
+text {
+    color: white;
+}
+
+table{
+    display: flex;
+    justify-content: center; /* Centering doesn't work for some reason */
+    border: 1px solid;
+    color: darkorange;
+    width: 75%;
+}
+
+th{
+    color: darkorange;
 }
