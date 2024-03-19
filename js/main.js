@@ -21,25 +21,17 @@ const waypoints = [
     new Waypoint("Luyten's Star",  6.5625, 2.34375, -10.25),
 ];
 
-// Function to add a new waypoint
 function addWaypoint(name, x, y, z) {
     const newWaypoint = new Waypoint(name, x, y, z);
     waypoints.push(newWaypoint);
 }
 
-// Function to remove a waypoint by name
 function removeWaypointByName(name) {
     const index = waypoints.findIndex(waypoint => waypoint.name === name);
     if (index !== -1) {
         waypoints.splice(index, 1);
     }
 }
-
-//addWaypoint("D", 2, 3, 0); // Add a new waypoint with name "D" and coordinates (2, 3, 0)
-//console.log("Waypoints after adding 'D':", waypoints);
-
-//removeWaypointByName("B"); // Remove waypoint with name "B"
-//console.log("Waypoints after removing 'B':", waypoints);
 
 function distance(waypoint1, waypoint2) {
     return Math.sqrt(Math.pow(waypoint2.x - waypoint1.x, 2) + 
@@ -89,3 +81,18 @@ function findShortestPath(waypoints) {
 
     return shortestPath;
 }
+
+function populateTable(waypoints) {
+    const tableBody = document.querySelector('.waypoints tbody');
+    tableBody.innerHTML = '';
+
+    waypoints.forEach(waypoint => {
+        const row = tableBody.insertRow();
+        Object.values(waypoint).forEach(val => {
+            const cell = row.insertCell();
+            cell.textContent = val;
+        });
+    });
+}
+
+populateTable(waypoints);
